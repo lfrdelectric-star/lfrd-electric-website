@@ -32,7 +32,17 @@
       --panel:#141519;
       --muted:#c9d0db;
       --y:#ffd000;--r:#d62828;--ink:#f3f5f8;--max:1100px
+        select#rq-customer, select#rq-besttime, input#rq-email, input#rq-name, input#rq-phone, textarea#rq-notes {
+  background:#0c0d10; border:1px solid #2b2d31; color:#fff; 
+  border-radius:10px; padding:12px; font-family:inherit; width:100%;
+}
+select#rq-customer, select#rq-besttime {
+  -webkit-appearance:none; -moz-appearance:none; appearance:none;
+}
+
       form[hidden] { display:none !important; visibility:hidden !important; }
+    form[hidden], .honeypot { display:none !important; visibility:hidden !important; }
+
 
     }
     *{box-sizing:border-box}
@@ -215,37 +225,49 @@
 <section id="contact" class="contact">
   <div class="container">
     <h3 class="section-title">Request a Call Back</h3>
+    
+<form name="request" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="request">
 
-    <!-- Hidden stub so Netlify detects the form at build -->
-<form name="request" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
-  <input type="text" name="Name" tabindex="-1" autocomplete="off">
-  <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+  <!-- Netlify honeypot (hidden anti-spam) -->
+  <p class="honeypot" aria-hidden="true" style="position:absolute;left:-10000px;height:0;width:0;overflow:hidden;">
+    <label>Don’t fill this out: <input name="bot-field"></label>
+  </p>
+
+  <label for="rq-name">Name</label>
+  <input id="rq-name" name="Name" autocomplete="name" required>
+
+  <label for="rq-phone">Phone</label>
+  <input id="rq-phone" name="Phone" inputmode="tel" autocomplete="tel" required>
+
+  <label for="rq-email">Email</label>
+  <input id="rq-email" name="Email" type="email" autocomplete="email" required>
+
+  <label for="rq-customer">Are you a new customer?</label>
+  <select id="rq-customer" name="Customer Type" required>
+    <option value="" selected disabled>Select an option…</option>
+    <option>Yes, I’m new</option>
+    <option>No, returning customer</option>
+  </select>
+
+  <label for="rq-besttime">Best Time to Call</label>
+  <select id="rq-besttime" name="Best Time" required>
+    <option value="" selected disabled>Choose a time…</option>
+    <option>Early Morning (6:00am–8:00am ET)</option>
+    <option>Mornings (9:00am–11:00am ET)</option>
+    <option>Afternoons (12:00pm–3:00pm ET)</option>
+    <option>Night (4:00pm–6:00pm ET)</option>
+    <option>Weekends</option>
+  </select>
+
+  <label for="rq-notes">Project Notes</label>
+  <textarea id="rq-notes" name="Notes" placeholder="Panel upgrade, RV plug, lighting, new circuit…"></textarea>
+
+  <button type="submit">Send Request</button>
+  <p class="muted" style="margin:8px 0 0">
+    Prefer email? <a href="mailto:lfrdelectric@gmail.com">lfrdelectric@gmail.com</a> • Call/Text: (859) 513-4005
+  </p>
 </form>
-
-      <label for="rq-name">Name</label>
-      <input id="rq-name" name="Name" required>
-
-      <label for="rq-phone">Phone</label>
-      <input id="rq-phone" name="Phone" required>
-
-      <label for="best-time">Best Time to Call</label>
-      <select id="best-time" name="best-time" required>
-        <option value="" disabled selected>Select a time</option>
-        <option value="early-morning">Early Morning (6:00 am - 8:00 am EST)</option>
-        <option value="morning">Mornings (9:00 am - 11:00 am EST)</option>
-        <option value="afternoon">Afternoons (12:00 pm - 3:00 pm EST)</option>
-        <option value="evening">Night (4:00 pm - 6:00 pm EST)</option>
-        <option value="weekends">Weekends</option>
-      </select>
-
-      <label for="rq-notes">Project Notes</label>
-      <textarea id="rq-notes" name="Notes" placeholder="Panel upgrade, RV plug, lighting, new circuit…"></textarea>
-
-      <button type="submit">Send Request</button>
-      <p class="muted" style="margin:8px 0 0">
-        Prefer email? <a href="mailto:lfrdelectric@gmail.com">lfrdelectric@gmail.com</a> • Call/Text: (859) 513-4005
-      </p>
-    </form>
   </div>
 </section>
 
