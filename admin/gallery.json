@@ -1,0 +1,8 @@
+{
+  "items": [
+    {"src": "/images/IMG_0410.jpeg", "alt": "Modern chandelier", "cat": "Lighting"},
+    {"src": "/images/IMG_0411.jpeg", "alt": "Dual ceiling fans", "cat": "Lighting"},
+    {"src": "/images/IMG_0412.jpeg", "alt": "RV / garage outlet", "cat": "RV/Garage"},
+    {"src": "/images/IMG_8826.jpeg", "alt": "Outdoor service area", "cat": "Outdoor"}
+  ]
+}
