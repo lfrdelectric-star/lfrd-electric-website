@@ -210,7 +210,7 @@
   </div>
 </section>
 
-<section id="request">
+<section id="contact" class="contact">
   <div class="container">
     <h3 class="section-title">Request a Call Back</h3>
 
@@ -229,8 +229,15 @@
       <label for="rq-phone">Phone</label>
       <input id="rq-phone" name="Phone" required>
 
-      <label for="rq-time">Best Time to Call</label>
-      <input id="rq-time" name="Best Time">
+      <label for="best-time">Best Time to Call</label>
+      <select id="best-time" name="best-time" required>
+        <option value="" disabled selected>Select a time</option>
+        <option value="early-morning">Early Morning (6:00 am - 8:00 am EST)</option>
+        <option value="morning">Mornings (9:00 am - 11:00 am EST)</option>
+        <option value="afternoon">Afternoons (12:00 pm - 3:00 pm EST)</option>
+        <option value="evening">Night (4:00 pm - 6:00 pm EST)</option>
+        <option value="weekends">Weekends</option>
+      </select>
 
       <label for="rq-notes">Project Notes</label>
       <textarea id="rq-notes" name="Notes" placeholder="Panel upgrade, RV plug, lighting, new circuit…"></textarea>
