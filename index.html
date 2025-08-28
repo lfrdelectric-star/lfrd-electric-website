@@ -174,7 +174,7 @@
     <div class="grid cols-3">
       <div class="card">
         <h4>Northern Kentucky</h4>
-        <p>Florence • Union • Burlington • Hebron • Covington • Independence • Erlanger • Fort Thomas</p>
+        <p>Georgetown • Cynthiana • Dry Ridge • Crittenden • Florence • Union • Burlington • Hebron • Covington • Independence • Erlanger • Fort Thomas</p>
       </div>
       <div class="card">
         <h4>Southeast Indiana (near NKY)</h4>
@@ -182,7 +182,7 @@
       </div>
       <div class="card">
         <h4>Southwest Ohio</h4>
-        <p>Kenwood • Sharonville • Blue Ash (and nearby neighborhoods)</p>
+        <p>Kenwood • Sharonville • Blue Ash • Cincinnati (and nearby neighborhoods)</p>
       </div>
     </div>
   </div>
@@ -267,18 +267,22 @@
 
   /* Gallery (simple array; edit paths to match your /images/ files) */
   const DEFAULT_GALLERY=[
-    {src:"/images/IMG_0410.jpeg",alt:"Modern chandelier",cat:"Lighting"},
-    {src:"/images/IMG_0411.jpeg",alt:"Dual ceiling fans",cat:"Lighting"},
-    {src:"/images/IMG_0412.jpeg",alt:"RV / garage outlet",cat:"RV/Garage"},
-    {src:"/images/IMG_8826.jpeg",alt:"Outdoor service area",cat:"Outdoor"},
-    {src:"/images/IMG_8827.jpeg",alt:"Generator inlet",cat:"Outdoor"},
-    {src:"/images/IMG_0335.jpeg",alt:"Finished panel covers",cat:"Panels"},
-    {src:"/images/IMG_0336.jpeg",alt:"Panel wiring tidy",cat:"Panels"},
-    {src:"/images/IMG_0337.jpeg",alt:"Fan + recessed lights",cat:"Lighting"},
-    {src:"/images/IMG_0338.jpeg",alt:"Grounding rod install",cat:"Outdoor"},
-    {src:"/images/IMG_0340.jpeg",alt:"Two-ring chandelier",cat:"Lighting"}
+    {src:"/images/IMG_0410.jpeg",alt:"Industrial Fan Install",cat:"Lighting & Fixtures"},
+    {src:"/images/IMG_0746.jpeg",alt:"Fan and TV Mount",cat:"Electronics & Home Upgrades"},
+    {src:"/images/IMG_0411.jpeg",alt:"Outlet install For Mini Fridge",cat:"Electronics & Home Upgrades"},
+    {src:"/images/IMG_0412.jpeg",alt:"Lighting Fixture install",cat:"Lighting & Fixtures"},
+    {src:"/images/IMG_6383.jpeg",alt:"Lighting Fixture install",cat:"Lighting & Fixtures"},
+    {src:"/images/IMG_8821.jpeg",alt:"Panel Wiring",cat:"Service Upgrades"},
+    {src:"/images/IMG_8822.jpeg",alt:"Panel Wiring",cat:"Service Upgrades"},
+    {src:"/images/IMG_8826.jpeg",alt:"RV Plug Install",cat:"Outdoor"},
+    {src:"/images/IMG_8827.jpeg",alt:"RV Plug Install",cat:"Outdoor"},
+    {src:"/images/IMG_0335.jpeg",alt:"Raised Celling Fan with Recessed Lighting",cat:"Lighting & Fixtures"},
+    {src:"/images/IMG_0336.jpeg",alt:"Upgraded Panels",cat:"Service Upgrades"},
+    {src:"/images/IMG_0337.jpeg",alt:"Modern chandelier",cat:"Lighting & Fixtures"},
+    {src:"/images/IMG_0338.jpeg",alt:"Meter Base Upgrade",cat:"Service Upgrades"},
+    {src:"/images/IMG_0340.jpeg",alt:"Upgraded Panels",cat:"Service Upgrades"}
   ];
-  const CATS=["All","Lighting","Panels","Outdoor","RV/Garage"];
+  const CATS=["All","Lighting & Fixtures","Electronics & Home Upgrades","Outdoor","Service Upgrades"];
   const filters=document.getElementById('filters'); const grid=document.getElementById('galleryGrid');
   let GALLERY=DEFAULT_GALLERY.slice();
 
