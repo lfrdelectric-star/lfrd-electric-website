@@ -17,7 +17,7 @@
     "@context":"https://schema.org","@type":"Electrician",
     "name":"LFRD Electric","url":"https://lfrdelectric.com/",
     "telephone":"+1-859-513-4005","email":"mailto:lfrdelectric@gmail.com",
-    "areaServed":"Northern & Central Kentucky",
+    "areaServed":"Northern Kentucky, Southeast Indiana near NKY, and Ohio up to Kenwood",
     "sameAs":["https://www.facebook.com/profile.php?id=61579281214399"]
   }
   </script>
@@ -26,12 +26,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    :root{--bg1:#0e0e0f;--bg2:#17181a;--bg3:#222327;--card:#101113;--panel:#0b0c0e;--muted:#b7c0cc;--y:#ffd000;--r:#d62828;--ink:#f3f5f8;--max:1100px}
+    :root{
+      --bg1:#0e0e0f;--bg2:#17181a;--bg3:#222327;
+      --card:#1e1f23;      /* lighter for readability */
+      --panel:#141519;
+      --muted:#c9d0db;
+      --y:#ffd000;--r:#d62828;--ink:#f3f5f8;--max:1100px
+    }
     *{box-sizing:border-box}
     html,body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(to bottom,var(--bg1),var(--bg2),var(--bg3));color:var(--ink)}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+    /* Header */
     header{position:sticky;top:0;z-index:40;background:rgba(10,10,12,.9);backdrop-filter:blur(6px);border-bottom:2px solid var(--y)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:70px;flex-wrap:wrap}
     .brand{display:flex;align-items:center;gap:12px}
@@ -42,41 +50,70 @@
     .navlinks a{font-weight:600}
     .navlinks a:hover{color:var(--y)}
     .cta{background:var(--y);color:#111;padding:10px 14px;border-radius:10px;font-weight:700}
+
+    /* Hero */
     .hero{background:linear-gradient(135deg,var(--y) 0%,#fff 85%);padding:80px 20px;text-align:center;color:#111}
     .hero h2{font-size:2.4rem;margin:0 0 10px}
     .hero p{color:#333;max-width:760px;margin:0 auto}
     .actions{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
     .btn{padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer}
-    .btn-primary{background:var(--r);color:#fff}.btn-outline{border:2px solid var(--r);color:var(--r);background:transparent}
+    .btn-primary{background:var(--r);color:#fff}
+    .btn-outline{border:2px solid var(--r);color:var(--r);background:transparent}
+
     section{padding:64px 20px}
     h3.section-title{text-align:center;margin:0 0 12px}
     .muted{color:var(--muted);text-align:center;max-width:760px;margin:0 auto 28px}
+
+    /* Cards (lighter/readable) */
     .grid{display:grid;gap:16px}
     @media(min-width:740px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);border:1px solid #2b2d31;border-radius:16px;padding:18px}
+    .card{background:var(--card);border:1px solid #2b2d31;border-radius:16px;padding:18px;color:#fff}
     .card h4{color:var(--y);margin:6px 0}
-    .trust{display:grid;gap:12px;margin-top:18px}
-    @media(min-width:700px){.trust{grid-template-columns:repeat(4,1fr)}}
-    .trust .card{display:flex;align-items:center;gap:10px}
-    .trust .icon{color:var(--y)}
+    .card p{color:#e8ecf2}
+
+    /* Chips */
     .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-    .chip{border:1px solid #2b2d31;background:#0f1012;color:#fff;border-radius:999px;padding:8px 12px;cursor:pointer}
-    .chip:hover{border-color:var(--y);color:var(--y)}
+    .chip{border:1px solid #2b2d31;background:#15161a;color:#fff;border-radius:999px;padding:8px 12px;cursor:pointer}
+    .chip.active, .chip:hover{border-color:var(--y);color:var(--y)}
+
+    /* Gallery */
     .gallery-grid{display:grid;gap:10px}
     @media(min-width:600px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
     .gallery-grid img{width:100%;height:260px;object-fit:cover;border-radius:12px;border:1px solid #2b2d31;background:#0f1012}
+
+    /* Form */
     form{background:var(--panel);border:1px solid #2b2d31;border-radius:16px;padding:18px;display:grid;gap:12px;max-width:600px;margin:0 auto}
     label{font-weight:600;font-size:.92rem}
     input,textarea{width:100%;background:#0c0d10;border:1px solid #2b2d31;color:#fff;border-radius:10px;padding:12px;font-family:inherit}
     textarea{min-height:120px;resize:vertical}
     button[type="submit"]{background:var(--r);color:#fff;border:none;padding:12px;border-radius:10px;font-weight:700;cursor:pointer}
+
     footer{border-top:2px solid var(--y);padding:22px 0;text-align:center;color:#b6c0cc;background:#0e0f10}
     .social-icons{display:flex;gap:12px;justify-content:center}
+
+    /* Joke overlay */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999}
+    .overlay.active{display:flex}
+    .jokecard{max-width:640px;background:#141519;border:1px solid #2b2d31;border-radius:18px;padding:24px;text-align:center;box-shadow:0 20px 80px rgba(0,0,0,.6)}
+    .jokecard h4{margin:0 0 10px;color:var(--y)}
+    .jokecard p{color:#e9edf3;margin:0 0 16px}
+    .jokecard button{background:var(--y);color:#111;border:none;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer}
+
     @media(max-width:739px){.hero{padding:56px 20px}.hero h2{font-size:2rem}}
   </style>
 </head>
 <body>
+
+<!-- Joke Pop-up (shows once per session) -->
+<div id="jokeOverlay" class="overlay" aria-modal="true" role="dialog">
+  <div class="jokecard">
+    <h4>Quick Spark Before You Enter</h4>
+    <p id="jokeText">Why did the electrician break up with the outlet? There was no spark anymore. 🔌💔</p>
+    <button id="enterBtn" aria-label="Continue to site">Continue</button>
+  </div>
+</div>
+
 <header>
   <div class="container nav">
     <div class="brand">
@@ -106,11 +143,11 @@
       <a class="btn btn-outline" href="tel:+18595134005">Call (859) 513-4005</a>
     </div>
 
-    <div class="trust">
-      <div class="card"><i class="icon fa-solid fa-flag-usa"></i><div><strong>Veteran-Owned</strong><p class="muted" style="margin:.25rem 0 0">Pride in service, pride in work.</p></div></div>
-      <div class="card"><i class="icon fa-solid fa-hand-holding-dollar"></i><div><strong>Honest Prices</strong><p class="muted" style="margin:.25rem 0 0">Clear, upfront estimates.</p></div></div>
-      <div class="card"><i class="icon fa-solid fa-shield-halved"></i><div><strong>Licensed & Insured</strong><p class="muted" style="margin:.25rem 0 0">Safety is non-negotiable.</p></div></div>
-      <div class="card"><i class="icon fa-solid fa-broom"></i><div><strong>Clean Work</strong><p class="muted" style="margin:.25rem 0 0">We leave it better than we found it.</p></div></div>
+    <!-- trust badges -->
+    <div class="grid cols-3" style="margin-top:22px">
+      <div class="card"><h4>Pride in service, pride in work.</h4><p>Veteran-owned and committed to quality.</p></div>
+      <div class="card"><h4>Clear, upfront estimates.</h4><p>No surprises — honest pricing.</p></div>
+      <div class="card"><h4>Safety is non-negotiable.</h4><p>Licensed, insured, and to code.</p></div>
     </div>
   </div>
 </section>
@@ -133,24 +170,35 @@
 <section id="areas">
   <div class="container">
     <h3 class="section-title">Where We Serve</h3>
-    <p class="muted">Northern & Central Kentucky — if you’re nearby, we’ll make it work.</p>
-    <div class="chips" id="areaChips"></div>
+    <p class="muted">Primarily Northern Kentucky, plus nearby Southeast Indiana, and Southwest Ohio up to Kenwood.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <h4>Northern Kentucky</h4>
+        <p>Florence • Union • Burlington • Hebron • Covington • Independence • Erlanger • Fort Thomas</p>
+      </div>
+      <div class="card">
+        <h4>Southeast Indiana (near NKY)</h4>
+        <p>Lawrenceburg • Greendale • Rising Sun</p>
+      </div>
+      <div class="card">
+        <h4>Southwest Ohio</h4>
+        <p>Kenwood • Sharonville • Blue Ash (and nearby neighborhoods)</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="gallery">
   <div class="container">
     <h3 class="section-title">Gallery — Recent Work</h3>
-    <p class="muted">Managed with a simple CMS. Drag-and-drop new photos at <code>/admin</code>.</p>
     <div class="chips" id="filters"></div>
-    <div class="gallery-grid" id="galleryGrid"></div>
+    <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
   </div>
 </section>
 
 <section id="reviews">
   <div class="container">
     <h3 class="section-title">What Our Customers Say</h3>
-    <!-- (Optional) Drop your widget script here later -->
     <div class="card" style="display:flex;gap:12px;align-items:flex-start">
       <div aria-hidden="true">⭐️⭐️⭐️⭐️⭐️</div>
       <div><p style="margin:.2rem 0 0">“Nick installed our RV plug perfectly and explained everything. Honest price and clean work.”</p><p class="muted" style="margin:.2rem 0 0">— Kentucky Homeowner</p></div>
@@ -204,15 +252,20 @@
 </footer>
 
 <script>
-  // ----- Service Areas (chips that prefill the notes) -----
-  const AREAS=["Crittenden","Union","Florence","Burlington","Independence","Hebron","Walton","Verona","Lexington","Georgetown","Nicholasville","Richmond","Winchester","Paris","Versailles","Frankfort"];
-  const chipsWrap=document.getElementById('areaChips'); const notes=document.getElementById('rq-notes');
-  AREAS.forEach(city=>{const b=document.createElement('button'); b.className='chip'; b.type='button'; b.textContent=city;
-    b.onclick=()=>{const p="Location: "+city+" — "; if(!notes.value.includes(p)) notes.value=p+notes.value; location.hash='#request';};
-    chipsWrap.appendChild(b);
-  });
+  /* Joke overlay (once per session) */
+  const jokes=[
+    "Why did the electrician break up with the outlet? There was no spark anymore. 🔌💔",
+    "I told my panel it needed more space. It said, 'I’m already at capacity.'",
+    "Our work is so tidy, your breakers will salute."
+  ];
+  const overlay=document.getElementById('jokeOverlay');
+  const jokeText=document.getElementById('jokeText');
+  const enterBtn=document.getElementById('enterBtn');
+  function showJoke(){jokeText.textContent=jokes[Math.floor(Math.random()*jokes.length)];overlay.classList.add('active');}
+  enterBtn.addEventListener('click',()=>overlay.classList.remove('active'));
+  window.addEventListener('load',()=>{if(!sessionStorage.getItem('lfrd_seen_joke')){showJoke();sessionStorage.setItem('lfrd_seen_joke','1');}});
 
-  // ----- Gallery (reads from CMS JSON; falls back to defaults) -----
+  /* Gallery (simple array; edit paths to match your /images/ files) */
   const DEFAULT_GALLERY=[
     {src:"/images/IMG_0410.jpeg",alt:"Modern chandelier",cat:"Lighting"},
     {src:"/images/IMG_0411.jpeg",alt:"Dual ceiling fans",cat:"Lighting"},
@@ -229,18 +282,28 @@
   const filters=document.getElementById('filters'); const grid=document.getElementById('galleryGrid');
   let GALLERY=DEFAULT_GALLERY.slice();
 
-  function renderFilters(active='All'){filters.innerHTML=''; CATS.forEach(c=>{const btn=document.createElement('button'); btn.className='chip'+(c===active?'': ''); btn.textContent=c; 
-    btn.onclick=()=>{renderFilters(c); renderGallery(c);} ; if(c===active){btn.style.borderColor='#ffd000'; btn.style.color='#ffd000'}; filters.appendChild(btn);});}
-  function renderGallery(cat='All'){grid.innerHTML=''; GALLERY.filter(g=>cat==='All'||g.cat===cat).forEach(g=>{const img=new Image(); img.loading='lazy'; img.src=g.src; img.alt=g.alt; img.title=g.alt; img.onclick=()=>window.open(g.src,'_blank'); grid.appendChild(img);});}
-
-  async function loadGallery(){
-    try{
-      const res=await fetch('/gallery.json',{cache:'no-store'});
-      if(res.ok){ const data=await res.json(); if(Array.isArray(data.items)&&data.items.length){ GALLERY=data.items; } }
-    }catch(e){}
-    renderFilters(); renderGallery();
+  function renderFilters(active='All'){
+    filters.innerHTML='';
+    CATS.forEach(c=>{
+      const b=document.createElement('button');
+      b.className='chip'+(c===active?' active':'');
+      b.textContent=c;
+      b.type='button';
+      b.onclick=()=>{renderFilters(c); renderGallery(c);};
+      filters.appendChild(b);
+    });
   }
-  loadGallery();
+  function renderGallery(cat='All'){
+    grid.innerHTML='';
+    GALLERY.filter(g=>cat==='All'||g.cat===cat).forEach(g=>{
+      const img=new Image(); img.loading='lazy'; img.src=g.src; img.alt=g.alt; img.title=g.alt;
+      img.onerror=()=>{img.style.opacity=.25; img.title='Image missing: '+g.src;};
+      img.onclick=()=>window.open(g.src,'_blank');
+      grid.appendChild(img);
+    });
+  }
+  renderFilters();
+  renderGallery();
 </script>
 </body>
 </html>
